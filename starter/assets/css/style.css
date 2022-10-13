@@ -8,3 +8,9 @@
     background-size: 360px;
     background-position: right bottom;
 }
+
+.bread {
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+}
