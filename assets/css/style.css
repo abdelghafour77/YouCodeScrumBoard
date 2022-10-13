@@ -14,3 +14,24 @@
     display: flex;
     justify-content: space-between;
 }
+
+.first-color {
+    background-color: #D9D9D9;
+}
+
+.second-color {
+    background-color: #F3F3F3;
+}
+
+.blue-color {
+    background-color: #5692EC;
+}
+
+.icon {
+    position: relative;
+    top: 41%;
+}
+
+.fa-spinner {
+    color: green;
+}
