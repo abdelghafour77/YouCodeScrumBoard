@@ -29,24 +29,23 @@ N'hésitez pas à utiliser le flux de travail qui vous convient le mieux. Vous t
 ## Layout
 
 Les designs ont été créés dans les largeurs (widths) suivantes:
+
 - Mobile: **375px**
 - Desktop: **1440px**
-Voir les maquettes en format PNG dans 📁 `/design`.
+  Voir les maquettes en format PNG dans 📁 `/design`.
 
 ## Preview
 
 ### Desktop preview
 
-![desktop](./design/desktop.png)
----
+## ![desktop](./maquette/desktop.png)
+
 ### Mobile preview
 
-![mobile](./design/mobile.png)
----
+## ![mobile](./maquette/mobile.png)
+
 ### Modal preview
 
-![modal](./design/modal.png)
----
-
+## ![modal](./maquette/modal.png)
 
 Best of luck! 🚀
