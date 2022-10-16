@@ -1,10 +1,31 @@
 :root {
-    --bg-color: #EDC7B7;
+    --bg-color: #C1C8E4;
+    --white-color: #EEE2DC;
+    --grey-color: #84CEEB;
+    --blue-color: #5680E9;
+    --red-color: #8860D0;
+    --yellow-color: #ECD06F;
+    --violet-color: #8860D0;
+    /* --bg-color: #EDC7B7;
     --white-color: #EEE2DC;
     --grey-color: #BAB2B5;
     --blue-color: #123C69;
     --red-color: #AC3B61;
     --yellow-color: #ECD06F;
+    --violet-color: #7E78D2; */
+}
+
+.logo {
+    font-family: 'Poppins', sans-serif;
+    /* font-size: 2rem; */
+    /* font-weight: bold; */
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.navbar-brand {
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .btn-scroll-to-top {
@@ -60,9 +81,17 @@
 
 .icon {
     position: relative;
-    top: 41%;
+    top: 32%;
+}
+
+.fa-check {
+    color: green;
 }
 
 .fa-spinner {
-    color: green;
+    color: var(--blue-color);
+}
+
+.fa-hourglass-start {
+    color: #6c757D;
 }
