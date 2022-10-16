@@ -46,11 +46,11 @@
           <div class="bread">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#" class="text-decoration-none fw-bold text-dark">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Scrum Board</li>
+              <li class="breadcrumb-item active text-color" aria-current="page">Scrum Board</li>
             </ol>
             <button
               type="button"
-              class="btn btn-secondary rounded-pill float-end"
+              class="btn btn-secondary rounded-pill float-end btn-add-task"
               data-bs-toggle="modal"
               data-bs-target="#exampleModal"
             >
@@ -67,289 +67,26 @@
           <!-- TODO -->
           <div class="col-md-4 col-sm-12 mb-3">
             <div class="card">
-              <div class="card-header text-center first-color text-white bg-dark fw-bold">To Do</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-hourglass-start icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Keep all the updated requirements in one place</h5>
-                      <small>#1 created in 2022-10-08</small>
-                      <div
-                        title="There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements.
-             The goal here is to keep all the up-to-date requirements and details in the main/primary description of a task. Even though the information in comments may affect initial criteria, just update this primary description accordingly."
-                      >
-                        There is hardly anything more frustrating than hav...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 2 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-hourglass-start icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Consider creating an acceptance criteria list</h5>
-                      <small>#2 created in 2022-10-08</small>
-                      <div
-                        title="Descriptive requirements are very helpful when it comes to understanding the context of a problem,
-                                yet finally it is good to precisely specify what is expected. Thus the developer will not have to look for the actual requirements in a long, 
-                                descriptive text but he will be able to easily get to the essence.
-                                One might find that sometimes — when acceptance criteria are well defined — there is little or no need for any additional information. Example:
-                                a) User navigates to “/accounts” and clicks on red download CSV button
-                                b) Popup appears with two buttons: “This year” and “Last year”
-                                c) If user clicked on “Last year” download is initiated
-                                d) CSV downloaded includes following columns…"
-                      >
-                        Descriptive requirements are very helpful when it comes...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 3 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-hourglass-start icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Provide examples, credentials, etc</h5>
-                      <small>#3 created in 2022-10-08</small>
-                      <div
-                        title="If the expectation is to process or generate some file — attach an example of such a file.
-				                      If the goal is to integrate what is being developed with some service, ensure your devs have access to this service and its documentation.
-				                      This list could go on and on — the bottom line is — if there is something that our developer might make use of, try to foresee it and provide them with (access to) it."
-                      >
-                        If the expectation is to process or generate some file ...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 4 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-hourglass-start icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Annotate</h5>
-                      <small>#4 created in 2022-10-08</small>
-                      <div
-                        title="The mockup provided can sometimes be confusing for developers.
-				 Especially if it contains much more content than the scope of the task described. Drop a couple of arrows,
-				  outlines and annotations here and there to emphasize what are the important parts of the mockup from the task requirements perspective."
-                      >
-                        The mockup provided can sometimes be confusing for deve...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 5 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-hourglass-start icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Use charts and diagrams</h5>
-                      <small>#5 created in 2022-10-08</small>
-                      <div
-                        title="While it is not always necessary, sometimes it might be beneficial to prepare a flowchart,
-				 a block diagram or some other kind of concept visualization that will render it easy for the developer to comprehend the task and its scope."
-                      >
-                        While it is not always necessary, sometimes it might be...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+              <div class="card-header text-center first-color text-white bg-dark fw-bold list-header-color">To Do</div>
+              <ul class="list-group list-group-flush" id="toDo"></ul>
             </div>
           </div>
           <!-- END TO DO -->
           <!-- In Progress -->
           <div class="col-md-4 col-sm-12 mb-3">
             <div class="card">
-              <div class="card-header text-center first-color text-white bg-dark fw-bold">In Progress</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-spinner icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Describe steps to reproduce an issue</h5>
-                      <small>#6 created in 2022-10-08</small>
-                      <div class="" title="including as many details as possible.">
-                        including as many details as possible.
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 2 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-spinner icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Provide access</h5>
-                      <small>#7 created in 2022-10-08</small>
-                      <div
-                        class=""
-                        title="to the affected account and services if possible. It might be hard to reproduce the exact environment on a local machine."
-                      >
-                        to the affected account and services if possible. It mi...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 3 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-spinner icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Provide environment information</h5>
-                      <small>#8 created in 2022-10-08</small>
-                      <div
-                        class=""
-                        title="i.e., browser version, operating system version etc. Sometimes a list of installed browser plugins and extensions might be helpful as well."
-                      >
-                        i.e., browser version, operating system version etc. So...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 4 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-spinner icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Provide a link to an exception and/or a stack trace</h5>
-                      <small>#9 created in 2022-10-08</small>
-                      <div
-                        class=""
-                        title="as investigating those is usually the first step to take in resolving the problem."
-                      >
-                        as investigating those is usually the first step to tak...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+              <div class="card-header text-center first-color text-white bg-dark fw-bold list-header-color">
+                In Progress
+              </div>
+              <ul class="list-group list-group-flush" id="inProgress"></ul>
             </div>
           </div>
           <!-- END IN PROGRESS -->
           <!-- DONE -->
           <div class="col-md-4 col-sm-12 mb-3">
             <div class="card">
-              <div class="card-header text-center first-color text-white bg-dark fw-bold">Done</div>
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-check icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Provide access to logs</h5>
-                      <small>#10 created in 2022-10-08</small>
-                      <div
-                        class=""
-                        title="as they can be helpful in reproducing the steps that caused the problem in the first place."
-                      >
-                        as they can be helpful in reproducing the steps that ca...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 2 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-check icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Provide access to the affected server or database dump</h5>
-                      <small>#11 created in 2022-10-08</small>
-                      <div
-                        class=""
-                        title="If it is possible and when it does not violate security policies, it is usually helpful for the developer to access the original data that might have played a role in the problem."
-                      >
-                        If it is possible and when it does not violate security...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 3 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-check icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Make a screencast</h5>
-                      <small>#12 created in 2022-10-08</small>
-                      <div
-                        class=""
-                        title="It is not always necessary, but many times a short screencast (or at least a screenshot) says more than a thousand words. While working on MacOS you can use QuickTime Player for the purpose but there are plenty of tools available for other operating systems as well."
-                      >
-                        It is not always necessary, but many times a short scre...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-                <!-- card 4 -->
-                <li class="list-group-item second-color">
-                  <div class="row">
-                    <div class="col-1">
-                      <i class="fa-solid fa-check icon"></i>
-                    </div>
-                    <div class="col">
-                      <h5>Provide contact information</h5>
-                      <small>#13 created in 2022-10-08</small>
-                      <div
-                        class=""
-                        title="of the person that reported the bug. This will not always be possible, but in some cases it might be advantageous and most effective if a developer can have a chat with a person that actually experienced the bug, especially if the steps to reproduce a problem are not deterministic."
-                      >
-                        of the person that reported the bug. This will not alwa...
-                      </div>
-                      <span class="badge rounded-pill text-white blue-color">High</span>
-                      <span class="badge rounded-pill text-bg-secondary">Feature</span>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+              <div class="card-header text-center first-color text-white bg-dark fw-bold list-header-color">Done</div>
+              <ul class="list-group list-group-flush" id="done"></ul>
             </div>
           </div>
           <!-- END DONE -->
@@ -357,9 +94,7 @@
       </div>
       <!-- END #content -->
       <!-- BEGIN scroll-top-btn -->
-      <a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top" data-toggle="scroll-to-top"
-        ><i class="fa fa-angle-up"></i
-      ></a>
+
       <!-- END scroll-top-btn -->
     </div>
     <!-- END #app -->
@@ -367,49 +102,50 @@
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Add Task</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <!-- start form -->
-            <form action="">
+        <form id="form">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add Task</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- start form -->
+
               <div class="mb-3">
                 <label for="title" class="form-label">Title</label>
                 <div class="input-group">
-                  <input type="text" class="form-control" id="title" aria-describedby="basic-addon3" />
+                  <input type="text" class="form-control" id="title" aria-describedby="basic-addon3" required />
                 </div>
               </div>
               <div class="mb-3">
                 <label class="form-label">Type</label>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
-                  <label class="form-check-label" for="flexRadioDefault1"> Default radio </label>
+                  <input class="form-check-input" type="radio" name="type" id="feature" value="Feature" checked />
+                  <label class="form-check-label" for="feature"> Feature </label>
                 </div>
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
-                  <label class="form-check-label" for="flexRadioDefault2"> Default checked radio </label>
+                  <input class="form-check-input" type="radio" name="type" id="bug" value="Bug" />
+                  <label class="form-check-label" for="bug"> Bug </label>
                 </div>
               </div>
               <div class="mb-3">
                 <label for="priority" class="form-label">Priority</label>
                 <div class="input-group">
-                  <select name="type" id="" class="form-select" id="priority" aria-describedby="basic-addon3">
-                    <option value="">Low</option>
-                    <option value="">Medium</option>
-                    <option value="">High</option>
-                    <option value="">Critical</option>
+                  <select name="type" class="form-select" id="priority" aria-describedby="basic-addon3" required>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Critical">Critical</option>
                   </select>
                 </div>
               </div>
               <div class="mb-3">
                 <label for="status" class="form-label">Status</label>
                 <div class="input-group">
-                  <select name="type" id="" class="form-select" id="status" aria-describedby="basic-addon3">
-                    <option value="">To do</option>
-                    <option value="">In progress</option>
-                    <option value="">Done</option>
+                  <select name="type" class="form-select" id="status" aria-describedby="basic-addon3" required>
+                    <option value="To do">To do</option>
+                    <option value="In progress">In progress</option>
+                    <option value="Done">Done</option>
                   </select>
                 </div>
               </div>
@@ -417,25 +153,38 @@
               <div class="mb-3">
                 <label for="date" class="form-label">Date</label>
                 <div class="input-group">
-                  <input type="date" name="date" class="form-control" id="date" aria-describedby="basic-addon3" />
+                  <input
+                    type="date"
+                    name="date"
+                    class="form-control"
+                    id="date"
+                    aria-describedby="basic-addon3"
+                    required
+                  />
                 </div>
               </div>
 
               <div class="mb-3">
-                <label for="exampleFormControlTextarea1" class="form-label">Description</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="5" required></textarea>
               </div>
-            </form>
-            <!-- end form -->
+
+              <!-- end form -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary btn-add-task">Save changes</button>
+            </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
-          </div>
-        </div>
+        </form>
       </div>
     </div>
-
+    <a
+      id="to-top"
+      class="btn btn-icon btn-circle btn-success btn-scroll-to-top btn-add-task"
+      data-toggle="scroll-to-top"
+      ><i class="fa fa-angle-up"></i
+    ></a>
     <!-- ================== BEGIN core-js ================== -->
     <!-- JavaScript Bundle with Popper -->
     <script
