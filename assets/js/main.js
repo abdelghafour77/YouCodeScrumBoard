@@ -66,6 +66,7 @@ function printTasks(tasks) {
         } else if (task.status === "Done") {
             i.className = "fa-solid fa-check icon";
         }
+
         let col = document.createElement("div");
         col.className = "col";
         let h5 = document.createElement("h5");
