@@ -1,5 +1,15 @@
 //  button to top
 const toTop = document.querySelector("#to-top");
+window.onscroll = function () { scrollFunction() };
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        toTop.style.display = "block";
+    } else {
+        toTop.style.display = "none";
+    }
+}
+
 toTop.addEventListener("click", function () {
     window.scrollTo({
         top: 0,
@@ -43,7 +53,7 @@ function printTasks(tasks) {
 
         let li = document.createElement("li");
         li.className = "list-group-item second-color";
-        li.setAttribute("data-id", Date.now());
+        li.setAttribute("data-id", Date.now()); // TO FIX
         let row = document.createElement("div");
         row.className = "row";
         let col_1 = document.createElement("div");
@@ -63,6 +73,7 @@ function printTasks(tasks) {
         let small = document.createElement("small");
         small.appendChild(document.createTextNode(task.date));
         let description = document.createElement("div");
+        description.className = " text-truncate";
         description.appendChild(document.createTextNode(task.description));
         let priority = document.createElement("span");
         priority.className = "badge rounded-pill text-white blue-color"
@@ -93,7 +104,6 @@ function printTasks(tasks) {
 window.addEventListener('load', () => {
 
     var form = document.querySelector("#form");
-
 
     form.addEventListener('submit', (e) => {
 
