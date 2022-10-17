@@ -48,57 +48,72 @@ function printTasks(tasks) {
     document.querySelector("#toDo").innerHTML = "";
     document.querySelector("#inProgress").innerHTML = "";
     document.querySelector("#done").innerHTML = "";
+    let toDo = document.querySelector("#toDo");
+    let inProgress = document.querySelector("#inProgress");
+    let done = document.querySelector("#done");
 
     tasks.forEach((task) => {
-
-        let li = document.createElement("li");
-        li.className = "list-group-item second-color";
-        li.setAttribute("data-id", Date.now()); // TO FIX
-        let row = document.createElement("div");
-        row.className = "row";
-        let col_1 = document.createElement("div");
-        col_1.className = "col-1";
-        let i = document.createElement("i");
+        console.log(task);
         if (task.status === "To do") {
-            i.className = "fa-solid fa-hourglass-start fa-beat-fade icon";
+            toDo.innerHTML +=
+                "< li class=\"list-group-item second-color\">< div class=\"row\">< div class=\"col-1\"><i class=\"fa-solid fa-hourglass-start icon\"></i></><div class=\"col\"><h5>Keep all the updated requirements in one place</h5><small>#1 created in 2022-10-08</small>< div title =\"There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements.The goal here is to keep all the up - to - date requirements and details in the main / primary description of a task.Even though the information in comments may affect initial criteria, just update this primary description accordingly.\">There is hardly anything more frustrating than hav...</ > <span class=\"badge rounded-pill text-white blue-color\">High</span><span class=\"badge rounded-pill text-bg-secondary\">Feature</span></div ></div ></li > ";
         } else if (task.status === "In progress") {
-            i.className = "fa-solid fa-spinner fa-spin-pulse icon";
-        } else if (task.status === "Done") {
-            i.className = "fa-solid fa-check icon";
-        }
+            inProgress.innerHTML +=
+                "< li class=\"list-group-item second-color\"><div class=\"row\">< div class=\"col-1\"><i class=\"fa-solid fa-hourglass-start icon\"></i></><div class=\"col\"><h5>Keep all the updated requirements in one place</h5><small>#1 created in 2022-10-08</small>< div title =\"There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements.The goal here is to keep all the up - to - date requirements and details in the main / primary description of a task.Even though the information in comments may affect initial criteria, just update this primary description accordingly.\">There is hardly anything more frustrating than hav...</ > <span class=\"badge rounded-pill text-white blue-color\">High</span><span class=\"badge rounded-pill text-bg-secondary\">Feature</span></div ></div ></li > ";
 
-        let col = document.createElement("div");
-        col.className = "col";
-        let h5 = document.createElement("h5");
-        h5.appendChild(document.createTextNode(task.title));
-        let small = document.createElement("small");
-        small.appendChild(document.createTextNode(task.date));
-        let description = document.createElement("div");
-        description.className = " text-truncate";
-        description.appendChild(document.createTextNode(task.description));
-        let priority = document.createElement("span");
-        priority.className = "badge rounded-pill text-white blue-color"
-        priority.appendChild(document.createTextNode(task.priority));
-        let type = document.createElement("span");
-        type.className = "badge rounded-pill text-bg-secondary"
-        type.appendChild(document.createTextNode(task.type));
-
-        col_1.appendChild(i);
-        col.appendChild(h5);
-        col.appendChild(small);
-        col.appendChild(description);
-        col.appendChild(priority);
-        col.appendChild(type);
-        row.appendChild(col_1);
-        row.appendChild(col);
-        li.appendChild(row);
-        if (task.status === "To do") {
-            toDo.appendChild(li);
-        } else if (task.status === "In progress") {
-            inProgress.appendChild(li);
         } else if (task.status === "Done") {
-            done.appendChild(li);
+            done.innerHTML +=
+                "< li class=\"list-group-item second-color\"><div class=\"row\">< div class=\"col-1\"><i class=\"fa-solid fa-hourglass-start icon\"></i></><div class=\"col\"><h5>Keep all the updated requirements in one place</h5><small>#1 created in 2022-10-08</small>< div title =\"There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements.The goal here is to keep all the up - to - date requirements and details in the main / primary description of a task.Even though the information in comments may affect initial criteria, just update this primary description accordingly.\">There is hardly anything more frustrating than hav...</ > <span class=\"badge rounded-pill text-white blue-color\">High</span><span class=\"badge rounded-pill text-bg-secondary\">Feature</span></div ></div ></li > ";
+
         }
+        // let li = document.createElement("li");
+        // li.className = "list-group-item second-color";
+        // li.setAttribute("data-id", Date.now()); // TO FIX
+        // let row = document.createElement("div");
+        // row.className = "row";
+        // let col_1 = document.createElement("div");
+        // col_1.className = "col-1";
+        // let i = document.createElement("i");
+        // if (task.status === "To do") {
+        //     i.className = "fa-solid fa-hourglass-start fa-beat-fade icon";
+        // } else if (task.status === "In progress") {
+        //     i.className = "fa-solid fa-spinner fa-spin-pulse icon";
+        // } else if (task.status === "Done") {
+        //     i.className = "fa-solid fa-check icon";
+        // }
+
+        // let col = document.createElement("div");
+        // col.className = "col";
+        // let h5 = document.createElement("h5");
+        // h5.appendChild(document.createTextNode(task.title));
+        // let small = document.createElement("small");
+        // small.appendChild(document.createTextNode(task.date));
+        // let description = document.createElement("div");
+        // description.className = " text-truncate";
+        // description.appendChild(document.createTextNode(task.description));
+        // let priority = document.createElement("span");
+        // priority.className = "badge rounded-pill text-white blue-color"
+        // priority.appendChild(document.createTextNode(task.priority));
+        // let type = document.createElement("span");
+        // type.className = "badge rounded-pill text-bg-secondary"
+        // type.appendChild(document.createTextNode(task.type));
+
+        // col_1.appendChild(i);
+        // col.appendChild(h5);
+        // col.appendChild(small);
+        // col.appendChild(description);
+        // col.appendChild(priority);
+        // col.appendChild(type);
+        // row.appendChild(col_1);
+        // row.appendChild(col);
+        // li.appendChild(row);
+        // if (task.status === "To do") {
+        //     toDo.appendChild(li);
+        // } else if (task.status === "In progress") {
+        //     inProgress.appendChild(li);
+        // } else if (task.status === "Done") {
+        //     done.appendChild(li);
+        // }
     });
 }
 
