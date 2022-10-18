@@ -42,7 +42,7 @@ function addDataToLocalStorageFrom(tasks) {
     window.localStorage.setItem("tasks", JSON.stringify(tasks));
 }
 
-function printTasks(tasks) {
+function printTasks(AllTasks) {
 
     // truncate all tasks
     document.querySelector("#toDo").innerHTML = "";
@@ -52,19 +52,63 @@ function printTasks(tasks) {
     let inProgress = document.querySelector("#inProgress");
     let done = document.querySelector("#done");
 
-    tasks.forEach((task) => {
-        console.log(task);
+    AllTasks.forEach((task) => {
+        // console.log(task);
         if (task.status === "To do") {
             toDo.innerHTML +=
-                "< li class=\"list-group-item second-color\">< div class=\"row\">< div class=\"col-1\"><i class=\"fa-solid fa-hourglass-start icon\"></i></><div class=\"col\"><h5>Keep all the updated requirements in one place</h5><small>#1 created in 2022-10-08</small>< div title =\"There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements.The goal here is to keep all the up - to - date requirements and details in the main / primary description of a task.Even though the information in comments may affect initial criteria, just update this primary description accordingly.\">There is hardly anything more frustrating than hav...</ > <span class=\"badge rounded-pill text-white blue-color\">High</span><span class=\"badge rounded-pill text-bg-secondary\">Feature</span></div ></div ></li > ";
+
+                `<li class="list-group-item second-color">
+                    <div class="row">
+                    <div class="col-1">
+                        <i class="fa-solid fa-hourglass-start fa-beat-fade icon"></i>
+                    </div>
+                    <div class="col-11">
+                        <h5>${task.title}</h5>
+                        <small>#1 created in ${task.date}</small>
+                        <div title="">
+                            ${task.description}
+                        </div>
+                        <span class="badge rounded-pill text-white blue-color">${task.priority}</span>
+                        <span class="badge rounded-pill text-bg-secondary">${task.type}</span>
+                    </div>
+                    </div>
+                </li>`;
         } else if (task.status === "In progress") {
             inProgress.innerHTML +=
-                "< li class=\"list-group-item second-color\"><div class=\"row\">< div class=\"col-1\"><i class=\"fa-solid fa-hourglass-start icon\"></i></><div class=\"col\"><h5>Keep all the updated requirements in one place</h5><small>#1 created in 2022-10-08</small>< div title =\"There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements.The goal here is to keep all the up - to - date requirements and details in the main / primary description of a task.Even though the information in comments may affect initial criteria, just update this primary description accordingly.\">There is hardly anything more frustrating than hav...</ > <span class=\"badge rounded-pill text-white blue-color\">High</span><span class=\"badge rounded-pill text-bg-secondary\">Feature</span></div ></div ></li > ";
-
+                `<li class="list-group-item second-color">
+                    <div class="row">
+                    <div class="col-1">
+                        <i class="fa-solid fa-spinner fa-spin-pulse icon"></i>
+                    </div>
+                    <div class="col-11">
+                        <h5>${task.title}</h5>
+                        <small>#1 created in ${task.date}</small>
+                        <div title="">
+                            ${task.description}
+                        </div>
+                        <span class="badge rounded-pill text-white blue-color">${task.priority}</span>
+                        <span class="badge rounded-pill text-bg-secondary">${task.type}</span>
+                    </div>
+                    </div>
+                </li>`;
         } else if (task.status === "Done") {
             done.innerHTML +=
-                "< li class=\"list-group-item second-color\"><div class=\"row\">< div class=\"col-1\"><i class=\"fa-solid fa-hourglass-start icon\"></i></><div class=\"col\"><h5>Keep all the updated requirements in one place</h5><small>#1 created in 2022-10-08</small>< div title =\"There is hardly anything more frustrating than having to look for current requirements in tens of comments under the actual description or having to decide which commenter is actually authorized to change the requirements.The goal here is to keep all the up - to - date requirements and details in the main / primary description of a task.Even though the information in comments may affect initial criteria, just update this primary description accordingly.\">There is hardly anything more frustrating than hav...</ > <span class=\"badge rounded-pill text-white blue-color\">High</span><span class=\"badge rounded-pill text-bg-secondary\">Feature</span></div ></div ></li > ";
-
+                `<li class="list-group-item second-color">
+                    <div class="row">
+                    <div class="col-1">
+                        <i class="fa-solid fa-check icon"></i>
+                    </div>
+                    <div class="col-11">
+                        <h5>${task.title}</h5>
+                        <small>#1 created in ${task.date}</small>
+                        <div title="">
+                            ${task.description}
+                        </div>
+                        <span class="badge rounded-pill text-white blue-color">${task.priority}</span>
+                        <span class="badge rounded-pill text-bg-secondary">${task.type}</span>
+                    </div>
+                    </div>
+                </li>`;
         }
         // let li = document.createElement("li");
         // li.className = "list-group-item second-color";
@@ -117,50 +161,44 @@ function printTasks(tasks) {
     });
 }
 
-window.addEventListener('load', () => {
 
-    var form = document.querySelector("#form");
 
-    form.addEventListener('submit', (e) => {
+var form = document.getElementById("form");
 
-        // to stop reload fo page
-        e.preventDefault();
+form.addEventListener('submit', (maryem) => {
 
-        // get all info from form
-        var selectStatus = document.getElementById('status');
-        var selectPriority = document.getElementById('priority');
+    // to stop reload fo page
+    maryem.preventDefault();
 
-        var title = document.getElementById("title").value;
-        var type = document.querySelector('input[name="type"]:checked').value;
-        var priority = selectPriority.value;
-        var option = selectStatus.value;
-        var date = document.getElementById("date").value;
-        var description = document.getElementById("description").value;
+    // get all info from form
 
-        // truncate form
-        document.getElementById("title").value = "";
-        document.getElementById("date").value = "";
-        document.getElementById("description").value = "";
+    var title = document.getElementById("title").value;
+    var type = document.querySelector('input[name="type"]:checked').value;
+    var priority = document.getElementById('priority').value;
+    var option = document.getElementById('status').value;
+    var date = document.getElementById("date").value;
+    var description = document.getElementById("description").value;
 
-        // create object of task
-        const task = {
-            title: title,
-            type: type,
-            priority: priority,
-            status: option,
-            date: date,
-            description: description
-        };
+    // truncate form
+    document.getElementById("title").value = "";
+    document.getElementById("date").value = "";
+    document.getElementById("description").value = "";
 
-        if (!task) {
-            alert("please fill out all inputs");
-        } else {
-            // add task to array of tasks
-            allTasks.push(task);
-            // print all tasks
-            printTasks(allTasks);
-            // storage tasks in local storage
-            addDataToLocalStorageFrom(allTasks)
-        }
-    })
+    // create object of task
+    var task = {
+        title: title,
+        type: type,
+        priority: priority,
+        status: option,
+        date: date,
+        description: description
+    };
+
+    // add task to array of tasks
+    allTasks.push(task);
+    // print all tasks
+    printTasks(allTasks);
+    // storage tasks in local storage
+    addDataToLocalStorageFrom(allTasks)
+
 })
