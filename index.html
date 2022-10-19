@@ -42,7 +42,7 @@
             <li class="breadcrumb-item active text-color" aria-current="page">Scrum Board</li>
           </ol>
           <button type="button" class="btn btn-secondary rounded-pill float-end btn-add-task" data-bs-toggle="modal"
-            data-bs-target="#exampleModal">
+            data-bs-target="#myModal">
             <i class="bi bi-plus"></i>
             Add Task
           </button>
@@ -52,12 +52,12 @@
     </header>
 
     <div id="content" class="app-content container">
-      <div class="row">
+      <div class="row" id="all-tasks">
         <!-- TODO -->
         <div class="col-md-4 col-sm-12 mb-3">
           <div class="card">
             <div class="card-header text-center first-color text-white bg-dark fw-bold list-header-color">To Do</div>
-            <ul class="list-group list-group-flush" id="toDo"></ul>
+            <div class="list-group list-group-flush" id="toDo"></div>
           </div>
         </div>
         <!-- END TO DO -->
@@ -67,7 +67,7 @@
             <div class="card-header text-center first-color text-white bg-dark fw-bold list-header-color">
               In Progress
             </div>
-            <ul class="list-group list-group-flush" id="inProgress"></ul>
+            <div class="list-group list-group-flush" id="inProgress"></div>
           </div>
         </div>
         <!-- END IN PROGRESS -->
@@ -75,7 +75,7 @@
         <div class="col-md-4 col-sm-12 mb-3">
           <div class="card">
             <div class="card-header text-center first-color text-white bg-dark fw-bold list-header-color">Done</div>
-            <ul class="list-group list-group-flush" id="done"></ul>
+            <div class="list-group list-group-flush" id="done"></div>
           </div>
         </div>
         <!-- END DONE -->
@@ -89,7 +89,7 @@
   <!-- END #app -->
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <form id="form">
         <div class="modal-content">
