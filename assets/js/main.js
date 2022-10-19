@@ -17,30 +17,27 @@ toTop.addEventListener("click", function () {
     });
 })
 
-// declare array of tasks
-var allTasks = [];
-
 // check if there is data in local storage and effected to the array
-if (localStorage.getItem("tasks")) {
-    allTasks = JSON.parse(localStorage.getItem("tasks"));
-}
+// if (localStorage.getItem("tasks")) {
+//     allTasks = JSON.parse(localStorage.getItem("tasks"));
+// }
 
 // call function
-getDataFromLocalStorage();
+// getDataFromLocalStorage();
 
 // print all tasks from local storage
-function getDataFromLocalStorage() {
-    let data = window.localStorage.getItem("tasks");
-    if (data) {
-        let tasks = JSON.parse(data);
-        printTasks(tasks);
-    }
-}
+// function getDataFromLocalStorage() {
+//     let data = window.localStorage.getItem("tasks");
+//     if (data) {
+//         let tasks = JSON.parse(data);
+//         printTasks(tasks);
+//     }
+// }
 
 // add array of tasks to local storage
-function addDataToLocalStorageFrom(tasks) {
-    window.localStorage.setItem("tasks", JSON.stringify(tasks));
-}
+// function addDataToLocalStorageFrom(tasks) {
+//     window.localStorage.setItem("tasks", JSON.stringify(tasks));
+// }
 
 function printTasks(AllTasks) {
 
@@ -54,7 +51,7 @@ function printTasks(AllTasks) {
 
     AllTasks.forEach((task) => {
         // console.log(task);
-        if (task.status === "To do") {
+        if (task.status === "To Do") {
             toDo.innerHTML +=
 
                 `<li class="list-group-item second-color">
@@ -65,7 +62,7 @@ function printTasks(AllTasks) {
                     <div class="col-11">
                         <h5>${task.title}</h5>
                         <small>#1 created in ${task.date}</small>
-                        <div title="">
+                        <div class="text-truncate" title="${task.description}">
                             ${task.description}
                         </div>
                         <span class="badge rounded-pill text-white blue-color">${task.priority}</span>
@@ -73,7 +70,7 @@ function printTasks(AllTasks) {
                     </div>
                     </div>
                 </li>`;
-        } else if (task.status === "In progress") {
+        } else if (task.status === "In Progress") {
             inProgress.innerHTML +=
                 `<li class="list-group-item second-color">
                     <div class="row">
@@ -83,7 +80,7 @@ function printTasks(AllTasks) {
                     <div class="col-11">
                         <h5>${task.title}</h5>
                         <small>#1 created in ${task.date}</small>
-                        <div title="">
+                        <div class="text-truncate" title="${task.description}">
                             ${task.description}
                         </div>
                         <span class="badge rounded-pill text-white blue-color">${task.priority}</span>
@@ -101,7 +98,7 @@ function printTasks(AllTasks) {
                     <div class="col-11">
                         <h5>${task.title}</h5>
                         <small>#1 created in ${task.date}</small>
-                        <div title="">
+                        <div class="text-truncate" title="${task.description}">
                             ${task.description}
                         </div>
                         <span class="badge rounded-pill text-white blue-color">${task.priority}</span>
@@ -199,6 +196,7 @@ form.addEventListener('submit', (maryem) => {
     // print all tasks
     printTasks(allTasks);
     // storage tasks in local storage
-    addDataToLocalStorageFrom(allTasks)
+    // addDataToLocalStorageFrom(allTasks)
 
 })
+printTasks(allTasks);
