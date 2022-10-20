@@ -24,7 +24,6 @@ let toDo = document.querySelector("#toDo"),
 
 // *************************************************************************************
 
-
 function createTask() {
     // $("#myModal").modal('show');
     document.getElementById('form').reset();
