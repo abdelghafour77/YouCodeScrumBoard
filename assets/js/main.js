@@ -18,38 +18,94 @@ toTop.addEventListener("click", function () {
 })
 // *************************************************************************************
 
-var toDo = document.querySelector("#toDo");
-var inProgress = document.querySelector("#inProgress");
-var done = document.querySelector("#done");
-var allTasksDiv = document.querySelector('#all-tasks');
+let toDo = document.querySelector("#toDo"),
+    inProgress = document.querySelector("#inProgress"),
+    done = document.querySelector("#done");
 
-// check if there is data in local storage and effected to the array
-// if (localStorage.getItem("tasks")) {
-//     allTasks = JSON.parse(localStorage.getItem("tasks"));
-// }
+// *************************************************************************************
 
-// call function
-// getDataFromLocalStorage();
 
-// print all tasks from local storage
-// function getDataFromLocalStorage() {
-//     let data = window.localStorage.getItem("tasks");
-//     if (data) {
-//         let tasks = JSON.parse(data);
-//         printTasks(tasks);
-//     }
-// }
-
-// add array of tasks to local storage
-// function addDataToLocalStorageFrom(tasks) {
-//     window.localStorage.setItem("tasks", JSON.stringify(tasks));
-// }
 function createTask() {
-    $("#myModal").modal('show');
-    document.getElementById('myModal').reset();
-}
-function printTasks() {
+    // $("#myModal").modal('show');
+    document.getElementById('form').reset();
+    let modal = document.querySelector("#myModal")
+    modal.innerHTML = `
+        <div class="modal-dialog modal-lg">
+        <form id="form">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Add Task</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <!-- start form -->
 
+              <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="title" aria-describedby="basic-addon3" required />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Type</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" id="feature" value="Feature" checked />
+                  <label class="form-check-label" for="feature"> Feature </label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="type" id="bug" value="Bug" />
+                  <label class="form-check-label" for="bug"> Bug </label>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="priority" class="form-label">Priority</label>
+                <div class="input-group">
+                  <select name="type" class="form-select" id="priority" aria-describedby="basic-addon3" required>
+                    <option disabled selected>Selected</option>
+                    <option value="Low">Low</option>
+                    <option value="Medium">Medium</option>
+                    <option value="High">High</option>
+                    <option value="Critical">Critical</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="status" class="form-label">Status</label>
+                <div class="input-group">
+                  <select name="type" class="form-select" id="status" aria-describedby="basic-addon3" required>
+                    <option disabled selected>Selected</option>
+                    <option value="To Do">To do</option>
+                    <option value="In Progress">In progress</option>
+                    <option value="Done">Done</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <div class="input-group">
+                  <input type="date" name="date" class="form-control" id="date" aria-describedby="basic-addon3" required />
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="description" class="form-label">Description</label>
+                <textarea class="form-control" id="description" rows="5" required></textarea>
+              </div>
+
+              <!-- end form -->
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary btn-add-task">Save changes</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      `;
+}
+
+function printTasks() {
     // truncate all tasks
     document.querySelector("#toDo").innerHTML = "";
     document.querySelector("#inProgress").innerHTML = "";
@@ -80,7 +136,7 @@ function printTasks() {
 
         div_task.innerHTML +=
 
-            `<button onclick="updateTask(${i})" class="list-group-item second-color" data-bs-toggle="modal"
+            `<button onclick="getTask(${i})" class="list-group-item second-color" data-bs-toggle="modal"
                 data-bs-target="#myModal">
                     <div class="row">
                     <div class="col-1">
@@ -105,8 +161,7 @@ function printTasks() {
 
 function addTask() {
 
-
-    var form = document.getElementById("form");
+    let form = document.getElementById("form");
 
     form.addEventListener('submit', (e) => {
 
@@ -114,19 +169,17 @@ function addTask() {
         e.preventDefault();
 
         // get all info from form
-
-        var title = document.getElementById("title").value;
-        var type = document.querySelector('input[name="type"]:checked').value;
-        var priority = document.getElementById('priority').value;
-        var option = document.getElementById('status').value;
-        var date = document.getElementById("date").value;
-        var description = document.getElementById("description").value;
+        let title = document.getElementById("title").value;
+        let type = document.querySelector('input[name="type"]:checked').value;
+        let priority = document.getElementById('priority').value;
+        let option = document.getElementById('status').value;
+        let date = document.getElementById("date").value;
+        let description = document.getElementById("description").value;
 
         // truncate form
-        document.getElementById('myModal').reset();
-
+        $("#myModal").modal('hide');
         // create object of task
-        var task = {
+        let task = {
             title: title,
             type: type,
             priority: priority,
@@ -139,21 +192,14 @@ function addTask() {
         allTasks.push(task);
         // print all tasks
         printTasks();
-        // storage tasks in local storage
-        // addDataToLocalStorageFrom(allTasks)
 
     })
-
-
 }
-// const yo = document.getElementByClassName("list-group-item")
-// yo.addEventListener("click", function () {
-//     console.log("e");
-// });
-function updateTask(id) {
 
-    var modal = document.getElementById("myModal")
-    console.log(id);
+function getTask(id) {
+
+    let modal = document.getElementById("myModal")
+    // console.log(id);
     modal.innerHTML = `
         <div class="modal-dialog modal-lg">
             <form id="form">
@@ -221,8 +267,8 @@ function updateTask(id) {
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button id="update" type="submit" class="btn btn-warning">Update</button>
-                        <button id="delete" type="submit" class="btn btn-danger">Delete</button>
+                        <button id="update" type="button" onClick="updateTask(${id})" class="btn btn-warning">Update</button>
+                        <button id="delete" type="button" onClick="deleteTask(${id})" class="btn btn-danger">Delete</button>
                     </div>
                 </div>
             </form>
