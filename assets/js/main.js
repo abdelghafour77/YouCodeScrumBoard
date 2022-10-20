@@ -51,16 +51,37 @@ function printTasks() {
     document.querySelector("#toDo").innerHTML = "";
     document.querySelector("#inProgress").innerHTML = "";
     document.querySelector("#done").innerHTML = "";
-    var i = 1;
+    let div_task = "",
+        i = 0,
+        counter_todo = 0,
+        counter_in_progress = 0,
+        counter_done = 0;
     allTasks.forEach((task) => {
+        i++;
         if (task.status === "To Do") {
-            toDo.innerHTML +=
+            div_task = document.querySelector("#toDo");
+            counter_todo++
+            icon = "fa-hourglass-start";
 
-                `<button onclick="updateTask(${i})" class="list-group-item second-color" data-bs-toggle="modal"
+        } else if (task.status === "In Progress") {
+            div_task = document.querySelector("#inProgress");
+            counter_in_progress++
+            icon = "fa-spinner fa-spin-pulse"
+
+        } else if (task.status === "Done") {
+            div_task = document.querySelector("#done");
+            counter_done++
+            icon = "fa-check"
+
+        }
+
+        div_task.innerHTML +=
+
+            `<button onclick="updateTask(${i})" class="list-group-item second-color" data-bs-toggle="modal"
                 data-bs-target="#myModal">
                     <div class="row">
                     <div class="col-1">
-                        <i class="fa-solid fa-hourglass-start fa-beat-fade icon"></i>
+                        <i class="fa-solid ${icon} fa-beat-fade icon"></i>
                     </div>
                     <div class="col-11">
                         <h5>${task.title}</h5>
@@ -73,46 +94,9 @@ function printTasks() {
                     </div>
                     </div>
                 </button>`;
-        } else if (task.status === "In Progress") {
-            inProgress.innerHTML +=
-                `<button onclick="updateTask(${i})" class="list-group-item second-color" data-bs-toggle="modal"
-                data-bs-target="#myModal">
-                    <div class="row">
-                    <div class="col-1">
-                        <i class="fa-solid fa-spinner fa-spin-pulse icon"></i>
-                    </div>
-                    <div class="col-11">
-                        <h5>${task.title}</h5>
-                        <small>#${i}  created in ${task.date}</small>
-                        <div class="text-truncate" title="${task.description}">
-                            ${task.description}
-                        </div>
-                        <span class="badge rounded-pill text-white blue-color">${task.priority}</span>
-                        <span class="badge rounded-pill text-bg-secondary">${task.type}</span>
-                    </div>
-                    </div>
-                </button>`;
-        } else if (task.status === "Done") {
-            done.innerHTML +=
-                `<button onclick="updateTask(${i})" class="list-group-item second-color" data-bs-toggle="modal"
-                data-bs-target="#myModal">
-                    <div class="row">
-                    <div class="col-1">
-                        <i class="fa-solid fa-check icon"></i>
-                    </div>
-                    <div class="col-11">
-                        <h5>${task.title}</h5>
-                        <small>#${i}  created in ${task.date}</small>
-                        <div class="text-truncate" title="${task.description}">
-                            ${task.description}
-                        </div>
-                        <span class="badge rounded-pill text-white blue-color">${task.priority}</span>
-                        <span class="badge rounded-pill text-bg-secondary">${task.type}</span>
-                    </div>
-                    </div>
-                </button>`;
-        }
-        i++;
+        document.getElementById("count-todo").innerText = counter_todo;
+        document.getElementById("count-in-progress").innerText = counter_in_progress;
+        document.getElementById("count-done").innerText = counter_done;
     });
 }
 
