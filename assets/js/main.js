@@ -44,7 +44,10 @@ var allTasksDiv = document.querySelector('#all-tasks');
 // function addDataToLocalStorageFrom(tasks) {
 //     window.localStorage.setItem("tasks", JSON.stringify(tasks));
 // }
-
+function createTask() {
+    $("#myModal").modal('show');
+    document.getElementById('myModal').reset();
+}
 function printTasks() {
 
     // truncate all tasks
@@ -120,9 +123,7 @@ function addTask() {
         var description = document.getElementById("description").value;
 
         // truncate form
-        document.getElementById("title").value = "";
-        document.getElementById("date").value = "";
-        document.getElementById("description").value = "";
+        document.getElementById('myModal').reset();
 
         // create object of task
         var task = {
