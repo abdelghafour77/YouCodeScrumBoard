@@ -17,16 +17,14 @@ toTop.addEventListener("click", function () {
   });
 })
 
-// *************************************************************************************
-
 let toDo = document.querySelector("#toDo"),
   inProgress = document.querySelector("#inProgress"),
   done = document.querySelector("#done");
 
-// *************************************************************************************
-
 function createTask() {
 
+  document.getElementById("btn-update").style.display = "none";
+  document.getElementById("btn-add").style.display = "block";
   document.getElementById('form').reset();
   let modal = document.querySelector("#myModal")
 }
@@ -48,21 +46,16 @@ function printTasks() {
       div_task = document.querySelector("#toDo");
       counter_todo++
       icon = "fa-hourglass-start";
-
     } else if (task.status === "In Progress") {
       div_task = document.querySelector("#inProgress");
       counter_in_progress++
       icon = "fa-spinner fa-spin-pulse"
-
     } else if (task.status === "Done") {
       div_task = document.querySelector("#done");
       counter_done++
       icon = "fa-check"
-
     }
-
     div_task.innerHTML +=
-
       `<button onclick="getTask(${i})" class="list-group-item second-color" data-bs-toggle="modal"
                 data-bs-target="#myModal">
                     <div class="row">
@@ -90,38 +83,21 @@ function printTasks() {
 }
 
 function addTask() {
-
-
-
-  // to stop reload fo page
-  // e.preventDefault();
-
-  // get all info from form
-  let title = document.getElementById("title").value;
-  let type = document.querySelector('input[name="type"]:checked').value;
-  let priority = document.getElementById('priority').value;
-  let option = document.getElementById('status').value;
-  let date = document.getElementById("date").value;
-  let description = document.getElementById("description").value;
-
-  // truncate form
-  $("#myModal").modal('hide');
-  // create object of task
+  // get all data & create object of task
   let task = {
-    title: title,
-    type: type,
-    priority: priority,
-    status: option,
-    date: date,
-    description: description
+    title: document.getElementById("title").value,
+    type: document.querySelector('input[name="type"]:checked').value,
+    priority: document.getElementById('priority').value,
+    status: document.getElementById('status').value,
+    date: document.getElementById("date").value,
+    description: document.getElementById("description").value
   };
-
   // add task to array of tasks
   allTasks.push(task);
+  // truncate form
+  $("#myModal").modal('hide');
   // print all tasks
   printTasks();
-
-
 }
 
 function getTask(id) {
@@ -140,8 +116,6 @@ function getTask(id) {
   document.getElementById("id").value = id;
   document.getElementById("btn-update").style.display = "block";
   document.getElementById("btn-add").style.display = "none";
-  // document.querySelector("deleteBtn").setAttribute("onclick", "deleteTask(" + id + ")")
-  // document.querySelector("deleteBtn").onclick = deleteTask(id - 1);
 }
 
 function updateTask() {
@@ -157,11 +131,11 @@ function updateTask() {
     date: document.getElementById("date").value,
     description: document.getElementById("description").value
   };
-
   // add task to array of tasks
   allTasks[id - 1] = task;
   printTasks();
 }
+
 function deleteTask() {
   let id = document.getElementById("id").value;
   allTasks.splice(id - 1, 1);
