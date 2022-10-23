@@ -41,15 +41,15 @@
 
 .main-style {
     background-color: var(--white-color);
-    min-height: 100vh;
-    /* background: url(../img/cover/cover-scrum-board.png) no-repeat fixed; */
+}
+
+.app-content {
+    background-color: var(--white-color);
+    min-height: 90vh;
+    background: url(/assets/img/cover/cover-scrum-board.png) no-repeat fixed;
     background-size: 360px;
     background-position: right bottom;
 }
-
-/* .list-header-color {
-    background-color: var(--red-color) !important;
-} */
 
 .bread {
     padding: 1rem 0;
@@ -79,33 +79,8 @@
     margin-right: .4rem;
 }
 
-.icon {
-    position: relative;
-    top: 32%;
-}
-
-.fa-check {
-    color: green;
-}
-
 .fa-spinner {
     color: var(--blue-color);
-}
-
-.fa-hourglass-start {
-    color: #6c757D;
-}
-
-.text-limit {
-    word-wrap: break-word;
-    width: 16rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    /* number of lines to show */
-    line-clamp: 2;
-    -webkit-box-orient: vertical;
 }
 
 .list-group-item {
