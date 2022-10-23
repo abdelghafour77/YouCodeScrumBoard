@@ -29,7 +29,7 @@
   <div id="app" class="app-without-sidebar">
     <!-- BEGIN #content -->
     <header>
-      <nav class="navbar first-color">
+      <nav class="navbar header-color">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">
             <h3 class="fw-bold text-white logo">S.board</h3>
@@ -40,8 +40,8 @@
       <div class="container-fluid">
         <div class="bread">
           <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#" class="text-decoration-none fw-bold text-dark">Home</a></li>
-            <li class="breadcrumb-item active text-color" aria-current="page">Scrum Board</li>
+            <li class="breadcrumb-item"><a href="#" class="text-decoration-none fw-bold title">Home</a></li>
+            <li class="breadcrumb-item active title" aria-current="page">Scrum Board</li>
           </ol>
           <button type="button" class="btn btn-secondary rounded-pill float-end btn-add-task" onclick="createTask()"
             data-bs-toggle="modal" data-bs-target="#myModal">
@@ -49,7 +49,7 @@
             Add Task
           </button>
         </div>
-        <h2 class="text-dark">Scrum Board</h2>
+        <h2 class="title-board">Scrum Board</h2>
       </div>
     </header>
 
@@ -58,7 +58,7 @@
         <!-- TODO -->
         <div class="col-md-4 col-sm-12 mb-3">
           <div class="card">
-            <div class="card-header text-center first-color text-white bg-dark fw-bold list-header-color">
+            <div class="card-header text-center header-color text-white bg-dark fw-bold list-header-color">
               To Do (<span id="count-todo">0</span>)
             </div>
             <div class="list-group list-group-flush" id="toDo"></div>
@@ -68,7 +68,7 @@
         <!-- In Progress -->
         <div class="col-md-4 col-sm-12 mb-3">
           <div class="card">
-            <div class="card-header text-center first-color text-white bg-dark fw-bold list-header-color">
+            <div class="card-header text-center header-color text-white bg-dark fw-bold list-header-color">
               In Progress (<span id="count-in-progress">0</span>)</div>
             <div class="list-group list-group-flush" id="inProgress"></div>
           </div>
@@ -77,7 +77,7 @@
         <!-- DONE -->
         <div class="col-md-4 col-sm-12 mb-3">
           <div class="card">
-            <div class="card-header text-center first-color text-white bg-dark fw-bold list-header-color">
+            <div class="card-header text-center header-color text-white bg-dark fw-bold list-header-color">
               Done (<span id="count-done">0</span>)</div>
             <div class="list-group list-group-flush" id="done"></div>
           </div>

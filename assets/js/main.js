@@ -2,7 +2,7 @@
 const toTop = document.querySelector("#to-top");
 window.onscroll = function () { scrollFunction() };
 function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+  if (document.body.scrollTop > 60 || document.documentElement.scrollTop > 60) {
     toTop.style.display = "block";
   } else {
     toTop.style.display = "none";
@@ -150,7 +150,7 @@ function printTasks() {
       icon = "bi bi-check-circle text-success"
     }
     div_task.innerHTML +=
-      `<button onclick="getTask(${i})" class="list-group-item second-color" data-bs-toggle="modal"
+      `<button onclick="getTask(${i})" class="list-group-item card-color" data-bs-toggle="modal"
                 data-bs-target="#myModal">
                     <div class="row">
                     

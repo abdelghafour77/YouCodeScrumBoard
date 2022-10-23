@@ -1,16 +1,19 @@
 :root {
-    --bg-color: #C1C8E4;
-    --white-color: #EEE2DC;
-    --grey-color: #84CEEB;
+    --bg-color: #212121;
+    --card-color: #2e2e2e;
+    /* --header-color: #272727; */
+    --header-color: #4e4e4e;
+    /* --header-color: #121212; */
     --blue-color: #5680E9;
-    --red-color: #8860D0;
+    --violet-color: #ba86fc;
+    --hover-color: #474747;
     --yellow-color: #ECD06F;
-    --violet-color: #8860D0;
+    --violet-color: #ba86fc;
     /* --bg-color: #EDC7B7;
     --white-color: #EEE2DC;
     --grey-color: #BAB2B5;
     --blue-color: #123C69;
-    --red-color: #AC3B61;
+    --violet-color: #AC3B61;
     --yellow-color: #ECD06F;
     --violet-color: #7E78D2; */
 }
@@ -40,15 +43,23 @@
 }
 
 .main-style {
-    background-color: var(--white-color);
+    background-color: var(--bg-color);
 }
 
 .app-content {
-    background-color: var(--white-color);
+    background-color: var(--bg-color);
     min-height: 90vh;
     background: url(../img/cover/cover.png) no-repeat fixed;
     background-size: 360px;
     background-position: right bottom;
+}
+
+.title-board {
+    color: var(--violet-color);
+}
+
+.title {
+    color: #c9d1d9;
 }
 
 .bread {
@@ -57,12 +68,12 @@
     justify-content: space-between;
 }
 
-.first-color {
-    background-color: var(--blue-color) !important;
+.header-color {
+    background-color: var(--header-color) !important;
 }
 
 .btn-add-task {
-    background-color: var(--red-color) !important;
+    background-color: var(--violet-color) !important;
     --bs-btn-border-color: none;
 }
 
@@ -70,8 +81,14 @@
     --bs-card-border-color: none !important;
 }
 
-.second-color {
-    background-color: var(--bg-color);
+.card-color {
+    background-color: var(--card-color);
+    color: aliceblue;
+}
+
+.card-color:hover {
+    background-color: var(--hover-color);
+    transition: .3s;
 }
 
 .blue-color {
