@@ -46,7 +46,7 @@
 .app-content {
     background-color: var(--white-color);
     min-height: 90vh;
-    background: url(assets/img/cover/cover.png) no-repeat fixed;
+    background: url(../img/cover/cover.png) no-repeat fixed;
     background-size: 360px;
     background-position: right bottom;
 }
