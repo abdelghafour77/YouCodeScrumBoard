@@ -154,8 +154,8 @@ function printTasks() {
                 data-bs-target="#myModal">
                     <div class="row">
                     
-                    <div class="col-1 my-auto">
-                        <i class="fa-solid ${icon}"></i>
+                    <div class="col-1 my-auto d-flex justify-content-center">
+                        <i class="fa-solid d-flex ${icon}"></i>
                     </div>
                     <div class="col-11">
                     <p class="fs-6 fw-semibold title m-0">${task.title}</p>
